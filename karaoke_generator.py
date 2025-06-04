@@ -343,4 +343,3 @@ class KaraokeGenerator:
             raise
 ''')
 
-print("Created karaoke_generator.py")

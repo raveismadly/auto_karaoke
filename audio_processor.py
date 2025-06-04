@@ -170,4 +170,3 @@ class AudioProcessor:
             raise
 ''')
 
-print("Created audio_processor.py")

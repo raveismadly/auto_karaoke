@@ -253,4 +253,3 @@ class TextRecognizer:
             raise
 ''')
 
-print("Created text_recognizer.py")

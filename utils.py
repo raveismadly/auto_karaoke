@@ -142,4 +142,3 @@ def is_video_file(file_path):
     return get_file_extension(file_path) in video_extensions
 ''')
 
-print("Created utils.py")
