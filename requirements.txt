@@ -1,0 +1,19 @@
+# Создаем requirements.txt
+with open('requirements.txt', 'w') as f:
+    f.write('''
+spleeter==2.3.0
+moviepy==1.0.3
+pydub==0.25.1
+openai-whisper==20231117
+Pillow==9.5.0
+numpy==1.24.3
+scikit-learn==1.2.2
+librosa==0.10.0
+tensorflow==2.12.0
+tk==0.1.0
+requests==2.31.0
+tqdm==4.65.0
+matplotlib==3.7.1
+''')
+
+print("Created requirements.txt")
