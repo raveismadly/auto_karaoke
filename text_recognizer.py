@@ -1,6 +1,3 @@
-# Создаем text_recognizer.py
-with open('text_recognizer.py', 'w') as f:
-    f.write('''
 import os
 import re
 import json

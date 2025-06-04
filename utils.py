@@ -1,6 +1,3 @@
-# Создаем utils.py
-with open('utils.py', 'w') as f:
-    f.write('''
 import os
 import re
 import logging

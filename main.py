@@ -1,6 +1,3 @@
-# Создаем main.py
-with open('main.py', 'w') as f:
-    f.write('''
 import os
 import sys
 import tkinter as tk
@@ -434,4 +431,3 @@ if __name__ == "__main__":
     app = Application()
     app.mainloop()
 ''')
-

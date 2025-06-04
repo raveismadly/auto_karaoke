@@ -1,6 +1,3 @@
-# Создаем audio_processor.py
-with open('audio_processor.py', 'w') as f:
-    f.write('''
 import os
 import logging
 import numpy as np

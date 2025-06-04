@@ -1,6 +1,3 @@
-# Создаем karaoke_generator.py
-with open('karaoke_generator.py', 'w') as f:
-    f.write('''
 import os
 import logging
 import numpy as np
