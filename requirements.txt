@@ -1,7 +1,5 @@
 # Создаем requirements.txt
-with open('requirements.txt', 'w') as f:
-    f.write('''
-spleeter==2.3.0
+spleeter==2.1.0
 moviepy==1.0.3
 pydub==0.25.1
 openai-whisper==20231117
@@ -14,6 +12,3 @@ tk==0.1.0
 requests==2.31.0
 tqdm==4.65.0
 matplotlib==3.7.1
-''')
-
-print("Created requirements.txt")
