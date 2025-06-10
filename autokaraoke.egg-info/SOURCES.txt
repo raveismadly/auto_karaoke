@@ -1,0 +1,8 @@
+README.md
+setup.py
+autokaraoke.egg-info/PKG-INFO
+autokaraoke.egg-info/SOURCES.txt
+autokaraoke.egg-info/dependency_links.txt
+autokaraoke.egg-info/entry_points.txt
+autokaraoke.egg-info/requires.txt
+autokaraoke.egg-info/top_level.txt
