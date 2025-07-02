@@ -1,4 +1,33 @@
 # Создаем README.md с инструкциями по использованию
+
+
+## MacOS Setup Instructions
+
+1. **Homebrew Installation**:
+   - Ensure you have [Homebrew](https://brew.sh/) installed.
+
+2. **Tkinter Setup**:
+   - Install Tcl/Tk dependencies via Homebrew to integrate with Python's tkinter:
+     ```bash
+     brew install tcl-tk
+     ```
+
+3. **Python Development Environment**:
+   - If using Apple Silicon (M1/M2), ensure Python is configured to use ARM64 compatibility.
+
+4. **Command Line Tools**:
+   - Confirm Command Line Tools are installed:
+     ```bash
+     xcode-select --install
+     ```
+
+5. **Dependencies**:
+   - Run the launch script to set up the dependencies:
+     ```bash
+     ./launch.sh
+     ```
+
+
 ## Описание
 AutoKaraoke - это приложение для macOS, которое позволяет автоматически создавать караоке из музыкальных файлов. Приложение отделяет вокал от музыки, распознает текст песни и создает видео караоке с синхронизированным текстом.
 
