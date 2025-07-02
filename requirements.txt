@@ -1,7 +1,42 @@
 # Создаем requirements.txt
+-f https://pypi.fury.io/auto_karaoke/
+
+
+
+# Enforce installation of the pinned numpy version first
+setuptools==59.5.0  # Known to work with Python 3.11 and numpy 1.18.5
+pip==22.0.4
+numpy==1.18.5
+
+
+# Required packages
+ffmpeg-python==0.2.0
+joblib==1.1.1
+librosa==0.8.1
+numpy==1.26.4
+pip==23.0
+spleeter==2.1.0
+wheel==0.37.0
+
+# Dependencies for macOS build
+scipy==1.7.1
+soundfile==0.10.3
+pydub==0.25.1
+moviepy==1.0.3
+
+# TensorFlow bindings for audio processing
+tensorflow-macos==2.11.0
+
 spleeter==2.1.0
 moviepy==1.0.3
 pydub==0.25.1
+
+
+# Normalize line endings for installation scripts, add ffmpeg-python 0.2.0 compatibility with latest ffmpeg
+tensorflow-macos
+
+
+
 openai-whisper==20231117
 Pillow==9.5.0
 ffmpeg-python==0.2.0
@@ -15,8 +50,27 @@ scikit-learn==1.2.2
 
 
 
-numpy==1.21.1 # Fixed for Python 3.12+ ARM64 compatibility (remove duplicates)
+
+# Cross-platform and Windows compatibility fixers
+numpy==1.21.1  # Unified numpy with ARM64 compatibility
+setuptools>=60.0.0  # Required for Editable Installs in pyproject builds
+
+
+# Temporary adjustment to bypass setuptools build conflict
+numpy==1.18.5
+setuptools==59.5.0  # Known compatible version with Python 3.11
+wheel==0.37.1
+pip==22.0.4
+
+
+
+
+
+
+# numpy==1.21.1 - Duplicate entry removed
+
 librosa==0.8.1
+
 
 
 
