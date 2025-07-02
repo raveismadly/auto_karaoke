@@ -1,6 +1,62 @@
 # Создаем README.md с инструкциями по использованию
 
 
+## Initial Setup for macOS
+
+To ensure the project can compile successfully on macOS (especially on M1/M2 Apple Silicon), follow these instructions:
+
+### Install Xcode Command Line Tools
+
+First, make sure you have Xcode Command Line Tools installed. If not already installed, run the following command in Terminal:
+
+```bash
+xcode-select --install
+```
+
+**Verify Installation:**
+Run `cc --version` and `clang --version` to check whether Xcode tools are available.
+
+### Install Homebrew and Required Packages
+1. Install Homebrew (if not already installed):
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+2. Install Tcl/Tk dependencies:
+
+```bash
+brew install tcl-tk
+```
+
+### Using the Launch Script for macOS
+
+Run the provided `launch.sh` script to set up your Python environment:
+
+```bash
+./launch.sh
+```
+
+**Note**: If you encounter permissions issues, ensure that you have executed:
+```bash
+chmod +x launch.sh
+```
+
+### Running the Application
+
+Ensure you are in the project root directory with all dependencies and libraries met. Launch the application using:
+```bash
+python3 main.py
+```
+
+If you encounter any issues, double check that all the instructions have been followed and make sure all dependencies are correctly installed.
+
+---
+
+
+
+
+
 ## MacOS Setup Instructions
 
 1. **Homebrew Installation**:
@@ -10,6 +66,16 @@
    - Install Tcl/Tk dependencies via Homebrew to integrate with Python's tkinter:
      ```bash
      brew install tcl-tk
+
+
+_**Note**: Ensure you have Xcode Command Line Tools installed via Terminal:
+```bash
+xcode-select --install
+```
+This resolves CCompiler failures in macOS Python builds.
+
+
+
      ```
 
 3. **Python Development Environment**:

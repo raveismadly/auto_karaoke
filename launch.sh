@@ -36,8 +36,26 @@ source venv/bin/activate
 venv/bin/pip install setuptools wheel
 
 
-# Install system essentials for macOS Python builds first
+
+# Create/update macOS-compatible virtualenv
+rm -rf venv                  # Clean any existing virtual environment to avoid version conflicts
+python3 -m venv venv         # Create fresh Python 3.12 virtual environment
+
+# Activate virtualenv and upgrade pip/setuptools
+source venv/bin/activate
+
+# Upgrade system's pip in case outdated
+pip install --upgrade pip
+
+# Force compatibility requirements for Apple Silicon
+brew install tcl-tk          # Homebrew installation of Tk support
+xcode-select --install       # Install/verify Xcode command line tools
+
+# Install dependencies with CCompiler resolution
+venv/bin/pip install numpy==1.21.0
+venv/bin/pip install setuptools==67.x.x
 venv/bin/pip install -r requirements.txt
+
 
 # Explicitly install numpy after pkg_resources issue resolution for macOS
 
