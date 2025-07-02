@@ -1,0 +1,42 @@
+
+# .gitignore file for the auto_karaoke project
+# Ignore Python Virtual Environment folders
+venv/
+
+# Ignore compiled Python files
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore operating system files
+.DS_Store
+.DS_Store?
+._*
+
+# Ignore IDE directories and configurations
+.idea/
+.vscode/
+.settings/
+.project
+.classpath
+
+# Ignore build and distribution directories
+build/
+dist/
+*.egg-info/
+
+# Ignore swap files
+*.swp
+*.swo
+
+# Ignore other temporary files
+*.log
+*.sqlite
+
+# Ignore Jupyter Notebook tempfiles
+.ipynb_checkpoints/
+
+# Ignore macOS-generated files
+.env
+
+
