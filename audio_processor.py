@@ -165,5 +165,3 @@ class AudioProcessor:
         except Exception as e:
             logger.error(f"Ошибка при смешивании аудио: {str(e)}")
             raise
-''')
-
