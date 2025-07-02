@@ -15,6 +15,55 @@ fi
 
 # Create and activate a virtual environment
 
+# Verify Python architecture
+
+# Set up CCompiler environment for Python 3.12 ARM64
+export MACOSX_DEPLOYMENT_TARGET=11.0
+
+
+
+# Verify Homebrew availability
+if command -v brew &> /dev/null
+then
+    echo "Homebrew is installed. Updating and installing dependencies..."
+    brew update
+    brew install pkg-config ffmpeg sndfile
+else
+    echo "Warning: Homebrew not found. Skipping Homebrew-managed dependencies."
+fi
+
+
+
+
+
+python_arch=$(python3 -c "import platform; print(platform.machine())")
+if [ "$python_arch" = "arm64" ]; then
+  echo "Detected ARM64 architecture. Adjusting dependencies accordingly..."
+  # Additional ARM64 specific setup
+fi
+
+# Set environment variables for CCompiler compatibility
+export CFLAGS="-arch arm64"  # For ARM64 target architecture
+export CPPFLAGS="$CFLAGS"    # Copy CFLAGS to C++ flags
+
+
+export PYTHON_CONFIGURE_OPTS="--enable-optimizations --enable-framework --with-extra-ldflags=-L/opt/homebrew/opt/libomp/lib"
+
+
+
+# Set up Homebrew dependencies if needed
+brew update
+brew install pkg-config ffmpeg sndfile
+
+
+
+
+# Set specific CFLAGS/LDFLAGS for numpy and libs/whl ARM64 builds
+# Set numpy compilation flags
+export NPY_CFLAGS=-arch arm64
+export NPY_LDFLAGS=-arch arm64
+
+
 # Check for available Python versions and use 3.11 if possible
 
 # Ensure use of available Python3 for compatibility
@@ -37,6 +86,12 @@ venv/bin/pip install setuptools wheel
 
 
 
+
+# Downgrade pip to avoid numpy build issues
+venv/bin/pip install pip==25.0
+
+
+
 # Create/update macOS-compatible virtualenv
 rm -rf venv                  # Clean any existing virtual environment to avoid version conflicts
 python3 -m venv venv         # Create fresh Python 3.12 virtual environment
@@ -48,12 +103,11 @@ source venv/bin/activate
 pip install --upgrade pip
 
 # Force compatibility requirements for Apple Silicon
-brew install tcl-tk          # Homebrew installation of Tk support
-xcode-select --install       # Install/verify Xcode command line tools
+
 
 # Install dependencies with CCompiler resolution
-venv/bin/pip install numpy==1.21.0
-venv/bin/pip install setuptools==67.x.x
+
+
 venv/bin/pip install -r requirements.txt
 
 

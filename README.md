@@ -1,6 +1,65 @@
 # Создаем README.md с инструкциями по использованию
 
 
+## macOS ARM64 (M1/M2) Setup Instructions
+
+### Prerequisites:
+
+1. **Install Xcode Command Line Tools**: Ensure you have Xcode command line tools installed:
+   ```sh
+   xcode-select --install
+   ```
+2. **Install Homebrew**: If not installed, install Homebrew at https://brew.sh/.
+3. **Python 3.12**: Required by current project dependencies.
+
+### Quick Setup:
+
+Execute the following commands to set up your environment with all necessary dependencies:
+
+```sh
+cd /path/to/auto_karaoke/
+./launch.sh  # Installs virtualenv, adjusts for ARM64 and installs dependencies
+```
+
+### Detailed Steps:
+
+1. **Create Python Virtual Environment**:
+    ```sh
+    rm -rf venv
+    python3 -m venv venv
+    source venv/bin/activate
+    ```
+
+2. **Install Requirements**:
+    ```sh
+    pip install setuptools wheel  # Essential for package compilation
+    pip install -r requirements.txt  # Ensure pip is <=25.1.1 to avoid build errors
+    ```
+
+3. **Additional Packages for ARM64/Macs**:
+   If `scipy` or other wheel-incompatible packages require compilation:
+   ```sh
+   brew install ffmpeg pkg-config    # For audio processing
+   ```
+
+### Known Issues & Solutions:
+
+- **Numpy/Scipy ARM64**: The provided launch script ensures correct `CFLAGS` and `LDFLAGS`. If wheels aren't available, manually installing dependencies first allows for faster subsequent builds.
+
+- **Setuptools Issues**: Recent versions of `pip`/`setuptools` may mishandle Python 3.12's build environment. Adjust via `./launch.sh` script to pin them or switch Python versions.
+
+### Running Locally:
+
+After the dependencies are correctly set up, execute using:
+
+### Dockerized Version (Optional):
+For consistent environment and CI/CD pipeline compatibility, see Docker guide under `docker-compose`.
+
+Contact maintainers at [openhands@all-hands.dev](mailto:openhands@all-hands.dev) for feature requests or questions.
+
+
+
+
 ## Initial Setup for macOS
 
 To ensure the project can compile successfully on macOS (especially on M1/M2 Apple Silicon), follow these instructions:

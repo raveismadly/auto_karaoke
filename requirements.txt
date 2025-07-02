@@ -6,15 +6,30 @@ openai-whisper==20231117
 Pillow==9.5.0
 ffmpeg-python==0.2.0
 # numpy==1.26.3
+
 scikit-learn==1.2.2
+
+
+# numpy==1.26.3
+
+
+
+
+numpy==1.21.1 # Fixed for Python 3.12+ ARM64 compatibility (remove duplicates)
 librosa==0.8.1
 
 
-numpy>=1.21.0,<1.22.0
-librosa>=0.8.1
+
+# numpy==1.21.6 for ARM64 compatibility
+librosa==0.8.1
 
 
-tensorflow==2.17.1
+
+numpy==1.21.6
+librosa==0.8.2
+
+
+tensorflow==2.17.1 # Fixed ARM64 compatibility (Linux wheel may not work)
 tk==0.1.0
 requests==2.31.0
 tqdm==4.65.0
