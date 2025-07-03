@@ -1,0 +1,95 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.raveismadly</groupId>
+    <artifactId>auto-karaoke</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>18.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-base</artifactId>
+            <version>18.0.1</version>
+        </dependency>
+        <!-- Add other potential dependencies for audio parsing, file handling here -->
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    
+        <plugin>
+            <groupId>com.simon-tammer</groupId>
+            <artifactId>jpackage-maven-plugin</artifactId>
+            <version>1.0.0</version>
+            <executions>
+                <execution>
+                    <phase>package</phase>
+                    <goals>
+                        <goal>jpackage</goal>
+                    </goals>
+                </execution>
+            </executions>
+            <configuration>
+                <name>AutoKaraoke</name>
+                <mainClass>${project.groupId}/AutoKaraokeApp</mainClass>
+                <jpackageCommand>jpackage</jpackageCommand>
+                <type>app-image</type> <!-- Changed from 'dmg' to 'app-image' for better compatibility -->
+                <dest>./target/app</dest>
+                <runtimeImageDir>${project.build.directory}/runtime-image</runtimeImageDir>
+            </configuration>
+
+        </plugin>
+
+        <!-- JPackage Plugin Configuration -->
+        <plugin>
+            <groupId>com.simon-tammer</groupId>
+            <artifactId>jpackage-maven-plugin</artifactId>
+            <version>1.0.0</version>
+            <executions>
+                <execution>
+                    <phase>package</phase>
+                    <goals>
+                        <goal>jpackage</goal>
+                    </goals>
+                </execution>
+            </executions>
+            <configuration>
+                <name>AutoKaraoke</name>
+                <mainClass>com.raveismadly.AutoKaraokeApp</mainClass> <!-- Updated mainClass path -->
+                <jpackageCommand>jpackage</jpackageCommand>
+                <type>app-image</type> <!-- Default macOS executable -->
+                <dest>${project.build.directory}/app</dest>
+                <appVersion>${project.version}</appVersion>
+                <vendor>${project.organization.name}</vendor>
+                <mainJar>${project.build.finalName}.jar</mainJar>
+            </configuration>
+        </plugin>
+    </plugins>
+
+</build>
+
+</project>
